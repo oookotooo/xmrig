@@ -163,9 +163,9 @@ void Hashrate::print()
              format(calc(ShortInterval),  num1, sizeof(num1))
              );
     double shortinterval = calc(ShortInterval);
-    LOG_INFO(Options::i()->colors() ? "\x1B[01;37mshortinterval\x1B[0m  \x1B[01;36m%s" : "shortinterval %",
-             shortinterval
-             );
+    // LOG_INFO(Options::i()->colors() ? "\x1B[01;37mshortinterval\x1B[0m  \x1B[01;36m%s" : "shortinterval %",
+//              shortinterval
+//              );
     if (shortinterval < 40) {
         LOG_INFO("Please terminate instance");
     }
