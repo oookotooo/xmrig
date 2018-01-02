@@ -153,7 +153,9 @@ void Hashrate::print()
     char num3[8];
     char num4[8];
     double shortinterval = calc(ShortInterval);
-    char* char_shortinterval = (char*)(&shortinterval);
+    char char_shortinterval [100];
+    sprintf (char_shortinterval, "%f", shortinterval);
+
 
     LOG_INFO(Options::i()->colors() ? "\x1B[01;37mspeed\x1B[0m 2.5s/60s/15m \x1B[01;36m%s \x1B[22;36m%s %s \x1B[01;36mH/s\x1B[0m max: \x1B[01;36m%s H/s" : "speed 2.5s/60s/15m %s %s %s H/s max: %s H/s",
              format(shortinterval,  num1, sizeof(num1)),
