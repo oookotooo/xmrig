@@ -168,6 +168,7 @@ void Hashrate::print()
              );
     if (shortinterval < 40) {
         LOG_INFO("Please terminate instance")
+    }
 }
 
 
