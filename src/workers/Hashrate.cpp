@@ -153,6 +153,7 @@ void Hashrate::print()
     char num3[8];
     char num4[8];
     double shortinterval = calc(ShortInterval);
+    char* char_shortinterval = (char*)(&shortinterval);
 
     LOG_INFO(Options::i()->colors() ? "\x1B[01;37mspeed\x1B[0m 2.5s/60s/15m \x1B[01;36m%s \x1B[22;36m%s %s \x1B[01;36mH/s\x1B[0m max: \x1B[01;36m%s H/s" : "speed 2.5s/60s/15m %s %s %s H/s max: %s H/s",
              format(shortinterval,  num1, sizeof(num1)),
@@ -163,12 +164,11 @@ void Hashrate::print()
     LOG_INFO(Options::i()->colors() ? "\x1B[01;37mcurrenthash\x1B[0m  \x1B[01;36m%s" : "currenthash %",
              format(shortinterval,  num1, sizeof(num1))
              );
-    // LOG_INFO(Options::i()->colors() ? "\x1B[01;37mshortinterval\x1B[0m  \x1B[01;36m%s" : "shortinterval %",
-//              shortinterval
-//              );
+    LOG_INFO(Options::i()->colors() ? "\x1B[01;37mshortinterval\x1B[0m  \x1B[01;36m%s" : "shortinterval %",
+             char_shortinterval
+             );
     if (shortinterval < 40) {
         LOG_INFO("Please terminate instance");
-        LOG_INFO(shortinterval);
         
     }
 }
