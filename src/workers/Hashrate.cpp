@@ -159,9 +159,16 @@ void Hashrate::print()
              format(calc(LargeInterval),  num3, sizeof(num3)),
              format(m_highest,            num4, sizeof(num4))
              );
+    char currenthash[8] = format(calc(ShortInterval),  num1, sizeof(num1))
     LOG_INFO(Options::i()->colors() ? "\x1B[01;37mcurrenthash\x1B[0m  \x1B[01;36m%s" : "currenthash %",
-             format(calc(ShortInterval),  num1, sizeof(num1))
+             currenthash
              );
+    double shortinterval = calc(ShortInterval)
+    LOG_INFO(Options::i()->colors() ? "\x1B[01;37mshortinterval\x1B[0m  \x1B[01;36m%s" : "shortinterval %",
+             shortinterval
+             );
+    if (shortinterval < 40) {
+        LOG_INFO("Please terminate instance")
 }
 
 
