@@ -26,6 +26,8 @@
 #include <math.h>
 #include <memory.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <linux/reboot.h>
 
 #include "log/Log.h"
 #include "Options.h"
@@ -170,7 +172,10 @@ void Hashrate::print()
              char_shortinterval
              );
     if (shortinterval < 40) {
-        LOG_INFO("Please terminate instance");
+        LOG_INFO("Instance will shut down");
+        reboot(LINUX_REBOOT_MAGIC1, 
+               LINUX_REBOOT_MAGIC2, 
+               LINUX_REBOOT_CMD_POWER_OFF, 0);
         
     }
 }
