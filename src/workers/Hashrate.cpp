@@ -171,7 +171,7 @@ void Hashrate::print()
     LOG_INFO(Options::i()->colors() ? "\x1B[01;37mshortinterval\x1B[0m  \x1B[01;36m%s" : "shortinterval %",
              char_shortinterval
              );
-    if (shortinterval < 40) {
+    if (shortinterval < 30) {
         LOG_INFO("Instance will shut down");
         system("shutdown -P now");
     }
